@@ -1,0 +1,1412 @@
+{
+  "package": "Ticketmaster",
+  "tagline": "Ticketmaster API",
+  "description": "Ticketmaster",
+  "image": "http:\/\/logo.clearbit.com\/ticketmaster.com",
+  "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Ticketmaster-Package",
+  "keywords": [
+  ],
+  "accounts": {
+    "domain": "ticketmaster.com",
+    "credentials": [
+      "apiKey",
+      "clientSecret"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getAccessToken",
+      "description": "Get user access token",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "clientSecret",
+          "type": "credentials",
+          "info": "Client secret from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "redirectUri",
+          "type": "String",
+          "info": "Redirect uri for your application",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "Code provided by user",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getUser",
+      "description": "Get user information",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "user access token",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "refreshAccessToken",
+      "description": "Get user access token",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "clientSecret",
+          "type": "credentials",
+          "info": "Client secret from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "refreshToken",
+          "type": "String",
+          "info": "Refresh token received in getAccessToken block",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createEvents",
+      "description": "Publish events accessible within the Discovery API.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key for PUBLISHING API",
+          "required": true
+        },
+        {
+          "name": "active",
+          "type": "Boolean",
+          "info": "true if the entity is active; inactive entity won’t appear in Discovery API.",
+          "required": false
+        },
+        {
+          "name": "additionalInfos",
+          "type": "JSON",
+          "info": "Map of locale to value for any additional informations on the event.",
+          "required": false
+        },
+        {
+          "name": "attractions",
+          "type": "Array",
+          "info": "List of attractions in the event.",
+          "required": false
+        },
+        {
+          "name": "classifications",
+          "type": "Array",
+          "info": "List of classifications for the event.",
+          "required": false
+        },
+        {
+          "name": "startDate",
+          "type": "JSON",
+          "info": "The start date of the event.",
+          "required": false
+        },
+        {
+          "name": "accessDate",
+          "type": "JSON",
+          "info": "The access date of the event.",
+          "required": false
+        },
+        {
+          "name": "endDate",
+          "type": "JSON",
+          "info": "The end date of the event.",
+          "required": false
+        },
+        {
+          "name": "timezone",
+          "type": "String",
+          "info": "The timezone of the event.",
+          "required": false
+        },
+        {
+          "name": "descriptions",
+          "type": "JSON",
+          "info": "Map of locale to value for the description of the event.",
+          "required": false
+        },
+        {
+          "name": "infos",
+          "type": "JSON",
+          "info": "Map of locale to value for any informations on the event.",
+          "required": false
+        },
+        {
+          "name": "images",
+          "type": "Array",
+          "info": "List of images of the event.",
+          "required": false
+        },
+        {
+          "name": "names",
+          "type": "JSON",
+          "info": "Map of locale to value for the names of the event.",
+          "required": false
+        },
+        {
+          "name": "placeNames",
+          "type": "JSON",
+          "info": "Map of locale to value for the names of the place.",
+          "required": false
+        },
+        {
+          "name": "placeAddressLine1",
+          "type": "JSON",
+          "info": "map of locale to value for the first line of the address.",
+          "required": false
+        },
+        {
+          "name": "placeAddressLine2",
+          "type": "JSON",
+          "info": "map of locale to value for the second line of the address.",
+          "required": false
+        },
+        {
+          "name": "placeAreaNames",
+          "type": "JSON",
+          "info": "map of locale to value for the names of the area.",
+          "required": false
+        },
+        {
+          "name": "placeCityNames",
+          "type": "JSON",
+          "info": "map of locale to value for the names of the city.",
+          "required": false
+        },
+        {
+          "name": "placeCountryCode",
+          "type": "String",
+          "info": "the code of the country of the event.",
+          "required": false
+        },
+        {
+          "name": "placeCountryNames",
+          "type": "JSON",
+          "info": "map of locale to value for the names of the country.",
+          "required": false
+        },
+        {
+          "name": "placeLatitude",
+          "type": "String",
+          "info": "the latitude of the event location.",
+          "required": false
+        },
+        {
+          "name": "placeLongitude",
+          "type": "String",
+          "info": "the longitude of the event location.",
+          "required": false
+        },
+        {
+          "name": "placePostalcode",
+          "type": "String",
+          "info": "the postal code of the place of the event.",
+          "required": false
+        },
+        {
+          "name": "placeStateNames",
+          "type": "JSON",
+          "info": "map of locale to value for the names of the state.",
+          "required": false
+        },
+        {
+          "name": "placeStateCode",
+          "type": "JSON",
+          "info": "the code of the state of the event.",
+          "required": false
+        },
+        {
+          "name": "pleaseNotes",
+          "type": "JSON",
+          "info": "map of locale to value for any notes related to the event.",
+          "required": false
+        },
+        {
+          "name": "priceRangesType",
+          "type": "String",
+          "info": "type of price",
+          "required": false
+        },
+        {
+          "name": "priceRangesCurrency",
+          "type": "String",
+          "info": "currency code (as defined by ISO-4217)",
+          "required": false
+        },
+        {
+          "name": "priceRangesMin",
+          "type": "String",
+          "info": "minimum price",
+          "required": false
+        },
+        {
+          "name": "priceRangesMax",
+          "type": "String",
+          "info": "maximum price",
+          "required": false
+        },
+        {
+          "name": "promoterId",
+          "type": "String",
+          "info": "id of the promoter",
+          "required": false
+        },
+        {
+          "name": "promoterNames",
+          "type": "JSON",
+          "info": "map of locale to value for the names of the promoter",
+          "required": false
+        },
+        {
+          "name": "promoterDescriptions",
+          "type": "JSON",
+          "info": "map of locale to value for the descriptions of the promoter",
+          "required": false
+        },
+        {
+          "name": "publicVisibilityStart",
+          "type": "String",
+          "info": "the start date and time of visibility for this event on the Discovery API in UTC.",
+          "required": false
+        },
+        {
+          "name": "publicVisibilityEnd",
+          "type": "String",
+          "info": "the end date and time of visibility for this event on the Discovery API in UTC.",
+          "required": false
+        },
+        {
+          "name": "publicVisibilityState",
+          "type": "Boolean",
+          "info": "true if the event should be visible on the Discovery API, false otherwise. (if not specified: true)",
+          "required": false
+        },
+        {
+          "name": "publicSalesEnd",
+          "type": "String",
+          "info": "the date and time of the end of the public sales period in UTC.",
+          "required": false
+        },
+        {
+          "name": "publicSalesStart",
+          "type": "String",
+          "info": "the date and time of the start of the public sales period in UTC.",
+          "required": false
+        },
+        {
+          "name": "publicSalesTBD",
+          "type": "Boolean",
+          "info": "true if the public sale date start is to be determined, false otherwise.",
+          "required": false
+        },
+        {
+          "name": "sourceId",
+          "type": "String",
+          "info": "the publisher’s id of the event.",
+          "required": false
+        },
+        {
+          "name": "sourceName",
+          "type": "String",
+          "info": "the publisher’s name.",
+          "required": false
+        },
+        {
+          "name": "test",
+          "type": "Boolean",
+          "info": "true if this is a test event data, false otherwise (real event).",
+          "required": false
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "info": "the URL of the event on the publisher’s site.",
+          "required": false
+        },
+        {
+          "name": "venue",
+          "type": "JSON",
+          "info": "the URL of the event on the publisher’s site.",
+          "required": false
+        },
+        {
+          "name": "version",
+          "type": "String",
+          "info": "the publisher’s version for this event.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchEvents",
+      "description": "Find events and filter your search by location, date, availability, and much more.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "sort",
+          "type": "String",
+          "info": "Sorting order of the search result. Example value: relevance,desc",
+          "required": false
+        },
+        {
+          "name": "latLong",
+          "type": "String",
+          "info": "Filter events by latitude and longitude",
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "String",
+          "info": "Radius of the area in which we want to search for events.",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "String",
+          "info": "Unit of the radius. Possible values:miles, km",
+          "required": false
+        },
+        {
+          "name": "startDateTime",
+          "type": "String",
+          "info": "Filter events with a start date after this date",
+          "required": false
+        },
+        {
+          "name": "endDateTime",
+          "type": "String",
+          "info": "Filter events with a start date before this date",
+          "required": false
+        },
+        {
+          "name": "onsaleStartDateTime",
+          "type": "String",
+          "info": "Filter events with onsale start date after this date",
+          "required": false
+        },
+        {
+          "name": "onsaleEndDateTime",
+          "type": "String",
+          "info": "Filter events with onsale end date before this date",
+          "required": false
+        },
+        {
+          "name": "countryCode",
+          "type": "String",
+          "info": "Filter events by country code",
+          "required": false
+        },
+        {
+          "name": "stateCode",
+          "type": "String",
+          "info": "Filter events by state code",
+          "required": false
+        },
+        {
+          "name": "venueId",
+          "type": "String",
+          "info": "Filter events by venue id",
+          "required": false
+        },
+        {
+          "name": "attractionId",
+          "type": "String",
+          "info": "Filter events by attraction id",
+          "required": false
+        },
+        {
+          "name": "segmentId",
+          "type": "String",
+          "info": "Filter events by segment id",
+          "required": false
+        },
+        {
+          "name": "segmentName",
+          "type": "String",
+          "info": "Filter events by segment name",
+          "required": false
+        },
+        {
+          "name": "classificationName",
+          "type": "String",
+          "info": "Filter events by classification name: name of any segment, genre, sub-genre, type, sub-type",
+          "required": false
+        },
+        {
+          "name": "classificationId",
+          "type": "String",
+          "info": "Filter events by classification id: id of any segment, genre, sub-genre, type, sub-type",
+          "required": false
+        },
+        {
+          "name": "marketId",
+          "type": "String",
+          "info": "Filter events by market id",
+          "required": false
+        },
+        {
+          "name": "promoterId",
+          "type": "String",
+          "info": "Filter events by promoter id",
+          "required": false
+        },
+        {
+          "name": "dmaId",
+          "type": "String",
+          "info": "Filter events by dma id",
+          "required": false
+        },
+        {
+          "name": "includeTBA",
+          "type": "String",
+          "info": "True, to include events with date to be announce (TBA). String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "includeTBD",
+          "type": "String",
+          "info": "True, to include event with a date to be defined (TBD). String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "clientVisibility",
+          "type": "String",
+          "info": "Filter events by clientName",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "Keyword to search on",
+          "required": false
+        },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "Filter entities by its id",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
+          "required": false
+        },
+        {
+          "name": "includeTest",
+          "type": "String",
+          "info": "True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "type": "Number",
+          "info": "Page number",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "Number",
+          "info": "Page size",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEvent",
+      "description": "Get details for a specific event using the unique identifier for the event. This includes the venue and location, the attraction(s), and the Ticketmaster Website URL for purchasing tickets for the event.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "ID of the event",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleEventImages",
+      "description": "Get images for a specific event using the unique identifier for the event.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "ID of the event",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchAttractions",
+      "description": "Find attractions (artists, sports, packages, plays and so on) and filter your search by name, and much more.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "sort",
+          "type": "String",
+          "info": "Sorting order of the search result. Example value: relevance,desc",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "Keyword to search on",
+          "required": false
+        },
+        {
+          "name": "attractionId",
+          "type": "String",
+          "info": "Filter attractions by its id",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
+          "required": false
+        },
+        {
+          "name": "includeTest",
+          "type": "String",
+          "info": "True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "type": "Number",
+          "info": "Page number",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "Number",
+          "info": "Page size",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleAttraction",
+      "description": "Get details for a specific attraction using the unique identifier for the attraction.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "attractionId",
+          "type": "String",
+          "info": "ID of the attraction",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchClassification",
+      "description": "Find classifications and filter your search by name, and much more. Classifications help define the nature of attractions and events.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "sort",
+          "type": "String",
+          "info": "Sorting order of the search result. Example value: relevance,desc",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "Keyword to search on",
+          "required": false
+        },
+        {
+          "name": "classificationId",
+          "type": "String",
+          "info": "Filter classifications by its id",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
+          "required": false
+        },
+        {
+          "name": "includeTest",
+          "type": "String",
+          "info": "True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "type": "Number",
+          "info": "Page number",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "Number",
+          "info": "Page size",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleClassification",
+      "description": "Get details for a specific segment, genre, or sub-genre using its unique identifier.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "classificationId",
+          "type": "String",
+          "info": "ID of the classification",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleGenre",
+      "description": "Get details for a specific genre using its unique identifier.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "genreId",
+          "type": "String",
+          "info": "ID of the classification",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleSegment",
+      "description": "Get details for a specific segment using its unique identifier.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "segmentId",
+          "type": "String",
+          "info": "ID of the segment",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchVenues",
+      "description": "Find venues and filter your search by name, and much more.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "sort",
+          "type": "String",
+          "info": "Sorting order of the search result. Example value: relevance,desc",
+          "required": false
+        },
+        {
+          "name": "keyword",
+          "type": "String",
+          "info": "Keyword to search on",
+          "required": false
+        },
+        {
+          "name": "venueId",
+          "type": "String",
+          "info": "Filter venues by its id",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
+          "required": false
+        },
+        {
+          "name": "includeTest",
+          "type": "String",
+          "info": "True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "type": "Number",
+          "info": "Page number",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "Number",
+          "info": "Page size",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        },
+        {
+          "name": "countryCode",
+          "type": "String",
+          "info": "Filter events by country code",
+          "required": false
+        },
+        {
+          "name": "stateCode",
+          "type": "String",
+          "info": "Filter events by state code",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleVenue",
+      "description": "Get details for a specific venue using the unique identifier for the venue.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "venueId",
+          "type": "String",
+          "info": "ID of the venue",
+          "required": true
+        },
+        {
+          "name": "locale",
+          "type": "String",
+          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEventOffers",
+      "description": "Returns Event Offers.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "eventId",
+          "type": "String",
+          "info": "ID of the event",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createCart",
+      "description": "Returns Event Offers.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "pollingCallbackUrl",
+          "type": "String",
+          "info": "Client webhook URI where response will be posted if the operation polls.",
+          "required": true
+        },
+        {
+          "name": "products",
+          "type": "Array",
+          "info": "Container of add product requests.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleCart",
+      "description": "Returns the cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateCartProducts",
+      "description": "This operation allows users to add or remove products to/from a cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "pollingCallbackUrl",
+          "type": "String",
+          "info": "Client webhook URI where response will be posted if the operation polls.",
+          "required": true
+        },
+        {
+          "name": "products",
+          "type": "Array",
+          "info": "Container of add product requests.",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getDeliveries",
+      "description": "Returns the deliveries.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addDeliveriesToCart",
+      "description": "This operation allows users to add deliveries to a cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "pollingCallbackUrl",
+          "type": "String",
+          "info": "Client webhook URI where response will be posted if the operation polls.",
+          "required": true
+        },
+        {
+          "name": "deliveries",
+          "type": "Array",
+          "info": "Container of add delivery requests.",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addDeliveriesToCart",
+      "description": "This operation allows users to add one or more payments to a cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "pollingCallbackUrl",
+          "type": "String",
+          "info": "Client webhook URI where response will be posted if the operation polls.",
+          "required": true
+        },
+        {
+          "name": "payments",
+          "type": "Array",
+          "info": "Container of add payments requests.",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getPayments",
+      "description": "This operation returns available payment options",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getOptions",
+      "description": "This operation returns available payment options plus information about deliveries",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "emptyCart",
+      "description": "This operation empties the cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "completeCartPurchase",
+      "description": "This operation empties the cart.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Client key from Ticketmaster",
+          "required": true
+        },
+        {
+          "name": "cartId",
+          "type": "String",
+          "info": "ID of the cart",
+          "required": true
+        },
+        {
+          "name": "pollingCallbackUrl",
+          "type": "String",
+          "info": "Client webhook URI where response will be posted if the operation polls.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
