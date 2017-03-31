@@ -18,39 +18,87 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     if (isset($post_data['args']['sort']) && strlen($post_data['args']['sort']) > 0) {
         $body['sort'] = $post_data['args']['sort'];
     }
-    $body['latlong'] = $post_data['args']['latLong'];
-    $body['radius'] = $post_data['args']['radius'];
-    $body['startDateTime'] = $post_data['args']['startDateTime'];
-    $body['endDateTime'] = $post_data['args']['endDateTime'];
-    $body['onsaleStartDateTime'] = $post_data['args']['onsaleStartDateTime'];
-    $body['onsaleEndDateTime'] = $post_data['args']['onsaleEndDateTime'];
-    $body['countryCode'] = $post_data['args']['countryCode'];
-    $body['stateCode'] = $post_data['args']['stateCode'];
-    $body['venueId'] = $post_data['args']['venueId'];
-    $body['attractionId'] = $post_data['args']['attractionId'];
-    $body['segmentId'] = $post_data['args']['segmentId'];
-    $body['segmentName'] = $post_data['args']['segmentName'];
-    $body['classificationName'] = $post_data['args']['classificationName'];
-    $body['classificationId'] = $post_data['args']['classificationId'];
-    $body['marketId'] = $post_data['args']['marketId'];
-    $body['promoterId'] = $post_data['args']['promoterId'];
-    $body['dmaId'] = $post_data['args']['dmaId'];
-    $body['includeTBA'] = $post_data['args']['includeTBA'];
-    $body['includeTBD'] = $post_data['args']['includeTBD'];
-    $body['clientVisibility'] = $post_data['args']['clientVisibility'];
-    $body['keyword'] = $post_data['args']['keyword'];
+    if (isset($post_data['args']['latLong']) && strlen($post_data['args']['latLong']) > 0) {
+        $body['latlong'] = $post_data['args']['latLong'];
+    }
+    if (isset($post_data['args']['radius']) && strlen($post_data['args']['radius']) > 0) {
+        $body['radius'] = $post_data['args']['radius'];
+    }
+    if (isset($post_data['args']['startDateTime']) && strlen($post_data['args']['startDateTime']) > 0) {
+        $body['startDateTime'] = $post_data['args']['startDateTime'];
+    }
+    if (isset($post_data['args']['endDateTime']) && strlen($post_data['args']['endDateTime']) > 0) {
+        $body['endDateTime'] = $post_data['args']['endDateTime'];
+    }
+    if (isset($post_data['args']['onsaleStartDateTime']) && strlen($post_data['args']['onsaleStartDateTime']) > 0) {
+        $body['onsaleStartDateTime'] = $post_data['args']['onsaleStartDateTime'];
+    }
+    if (isset($post_data['args']['onsaleEndDateTime']) && strlen($post_data['args']['onsaleEndDateTime']) > 0) {
+        $body['onsaleEndDateTime'] = $post_data['args']['onsaleEndDateTime'];
+    }
+    if (isset($post_data['args']['countryCode']) && strlen($post_data['args']['countryCode']) > 0) {
+        $body['countryCode'] = $post_data['args']['countryCode'];
+    }
+    if (isset($post_data['args']['stateCode']) && strlen($post_data['args']['stateCode']) > 0) {
+        $body['stateCode'] = $post_data['args']['stateCode'];
+    }
+    if (isset($post_data['args']['venueId']) && strlen($post_data['args']['venueId']) > 0) {
+        $body['venueId'] = $post_data['args']['venueId'];
+    }
+    if (isset($post_data['args']['attractionId']) && strlen($post_data['args']['attractionId']) > 0) {
+        $body['attractionId'] = $post_data['args']['attractionId'];
+    }
+    if (isset($post_data['args']['segmentId']) && strlen($post_data['args']['segmentId']) > 0) {
+        $body['segmentId'] = $post_data['args']['segmentId'];
+    }
+    if (isset($post_data['args']['segmentName']) && strlen($post_data['args']['segmentName']) > 0) {
+        $body['segmentName'] = $post_data['args']['segmentName'];
+    }
+    if (isset($post_data['args']['classificationName']) && strlen($post_data['args']['classificationName']) > 0) {
+        $body['classificationName'] = $post_data['args']['classificationName'];
+    }
+    if (isset($post_data['args']['classificationId']) && strlen($post_data['args']['classificationId']) > 0) {
+        $body['classificationId'] = $post_data['args']['classificationId'];
+    }
+    if (isset($post_data['args']['marketId']) && strlen($post_data['args']['marketId']) > 0) {
+        $body['marketId'] = $post_data['args']['marketId'];
+    }
+    if (isset($post_data['args']['promoterId']) && strlen($post_data['args']['promoterId']) > 0) {
+        $body['promoterId'] = $post_data['args']['promoterId'];
+    }
+    if (isset($post_data['args']['dmaId']) && strlen($post_data['args']['dmaId']) > 0) {
+        $body['dmaId'] = $post_data['args']['dmaId'];
+    }
+    if (isset($post_data['args']['includeTBA']) && strlen($post_data['args']['includeTBA']) > 0) {
+        $body['includeTBA'] = $post_data['args']['includeTBA'];
+    }
+    if (isset($post_data['args']['includeTBD']) && strlen($post_data['args']['includeTBD']) > 0) {
+        $body['includeTBD'] = $post_data['args']['includeTBD'];
+    }
+    if (isset($post_data['args']['clientVisibility']) && strlen($post_data['args']['clientVisibility']) > 0) {
+        $body['clientVisibility'] = $post_data['args']['clientVisibility'];
+    }
+    if (isset($post_data['args']['keyword']) && strlen($post_data['args']['keyword']) > 0) {
+        $body['keyword'] = $post_data['args']['keyword'];
+    }
     if (isset($post_data['args']['eventId']) && strlen($post_data['args']['eventId']) > 0) {
         $body['id'] = $post_data['args']['eventId'];
     }
-    $body['source'] = $post_data['args']['source'];
-    $body['includeTest'] = $post_data['args']['includeTest'];
+    if (isset($post_data['args']['source']) && strlen($post_data['args']['source']) > 0) {
+        $body['source'] = $post_data['args']['source'];
+    }
+    if (isset($post_data['args']['includeTest']) && strlen($post_data['args']['includeTest']) > 0) {
+        $body['includeTest'] = $post_data['args']['includeTest'];
+    }
     if (isset($post_data['args']['pageNumber']) && strlen($post_data['args']['pageNumber']) > 0) {
         $body['page'] = $post_data['args']['pageNumber'];
     }
     if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
         $body['size'] = $post_data['args']['pageSize'];
     }
-    $body['locale'] = $post_data['args']['locale'];
+    if (isset($post_data['args']['locale']) && strlen($post_data['args']['locale']) > 0) {
+        $body['locale'] = $post_data['args']['locale'];
+    }
 
     //requesting remote API
     $client = new GuzzleHttp\Client();
