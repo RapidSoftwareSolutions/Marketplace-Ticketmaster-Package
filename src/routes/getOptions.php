@@ -12,7 +12,7 @@ $app->post('/api/Ticketmaster/getOptions', function ($request, $response, $args)
     }
 
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'commerce/v2/shopping/carts/' . $post_data['args']['cartId'] . '/options.json';
+    $query_str = $settings['api_url'] . 'commerce/v2/checkout/carts/' . $post_data['args']['cartId'] . '/options.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
 

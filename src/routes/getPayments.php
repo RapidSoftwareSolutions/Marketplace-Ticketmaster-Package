@@ -12,7 +12,7 @@ $app->post('/api/Ticketmaster/getPayments', function ($request, $response, $args
     }
 
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'commerce/v2/shopping/carts/' . $post_data['args']['cartId'] . '/payments.json';
+    $query_str = $settings['api_url'] . 'commerce/v2/checkout/carts/' . $post_data['args']['cartId'] . '/payments.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
 
