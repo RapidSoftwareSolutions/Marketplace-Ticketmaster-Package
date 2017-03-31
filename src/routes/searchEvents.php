@@ -40,7 +40,9 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     $body['id'] = $post_data['args']['eventId'];
     $body['source'] = $post_data['args']['source'];
     $body['includeTest'] = $post_data['args']['includeTest'];
-    $body['page'] = $post_data['args']['pageNumber'];
+    if (isset($post_data['args']['pageNumber']) && strlen($post_data['args']['pageNumber']) > 0) {
+        $body['page'] = $post_data['args']['pageNumber'];
+    }
     if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
         $body['size'] = $post_data['args']['pageSize'];
     }
