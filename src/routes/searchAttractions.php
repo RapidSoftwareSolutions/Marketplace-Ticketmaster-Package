@@ -20,7 +20,9 @@ $app->post('/api/Ticketmaster/searchAttractions', function ($request, $response,
     $body['id'] = $post_data['args']['attractionId'];
     $body['source'] = $post_data['args']['source'];
     $body['includeTest'] = $post_data['args']['includeTest'];
-    $body['page'] = $post_data['args']['pageNumber'];
+    if (isset($post_data['args']['pageNumber']) && strlen($post_data['args']['pageNumber']) > 0) {
+        $body['page'] = $post_data['args']['pageNumber'];
+    }
     $body['size'] = $post_data['args']['pageSize'];
     $body['locale'] = $post_data['args']['locale'];
 

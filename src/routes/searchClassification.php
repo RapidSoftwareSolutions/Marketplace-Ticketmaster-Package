@@ -21,7 +21,9 @@ $app->post('/api/Ticketmaster/searchClassification', function ($request, $respon
     $body['source'] = $post_data['args']['source'];
     $body['includeTest'] = $post_data['args']['includeTest'];
     $body['page'] = $post_data['args']['pageNumber'];
-    $body['size'] = $post_data['args']['pageSize'];
+    if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
+        $body['size'] = $post_data['args']['pageSize'];
+    }
     $body['locale'] = $post_data['args']['locale'];
 
     //requesting remote API
