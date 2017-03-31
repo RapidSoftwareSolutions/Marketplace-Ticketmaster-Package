@@ -15,7 +15,9 @@ $app->post('/api/Ticketmaster/searchClassification', function ($request, $respon
     $query_str = $settings['api_url'] . 'discovery/v2/classifications.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['sort'] = $post_data['args']['sort'];
+    if (isset($post_data['args']['sort']) && strlen($post_data['args']['sort']) > 0) {
+        $body['sort'] = $post_data['args']['sort'];
+    }
     $body['keyword'] = $post_data['args']['keyword'];
     $body['id'] = $post_data['args']['classificationId'];
     $body['source'] = $post_data['args']['source'];

@@ -15,7 +15,9 @@ $app->post('/api/Ticketmaster/searchAttractions', function ($request, $response,
     $query_str = $settings['api_url'] . 'discovery/v2/attractions.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['sort'] = $post_data['args']['sort'];
+    if (isset($post_data['args']['sort']) && strlen($post_data['args']['sort']) > 0) {
+        $body['sort'] = $post_data['args']['sort'];
+    }
     $body['keyword'] = $post_data['args']['keyword'];
     $body['id'] = $post_data['args']['attractionId'];
     $body['source'] = $post_data['args']['source'];

@@ -15,7 +15,9 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     $query_str = $settings['api_url'] . 'discovery/v2/events.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['sort'] = $post_data['args']['sort'];
+    if (isset($post_data['args']['sort']) && strlen($post_data['args']['sort']) > 0) {
+        $body['sort'] = $post_data['args']['sort'];
+    }
     $body['latlong'] = $post_data['args']['latLong'];
     $body['radius'] = $post_data['args']['radius'];
     $body['startDateTime'] = $post_data['args']['startDateTime'];
