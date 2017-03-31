@@ -1251,7 +1251,7 @@
       ]
     },
     {
-      "name": "addDeliveriesToCart",
+      "name": "addPaymentsToCart",
       "description": "This operation allows users to add one or more payments to a cart.",
       "args": [
         {

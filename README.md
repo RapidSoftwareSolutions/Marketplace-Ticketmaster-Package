@@ -286,7 +286,7 @@ This operation allows users to add deliveries to a cart.
 | deliveries        | Array      | Container of add delivery requests.
 | cartId            | String     | ID of the cart
 
-## Ticketmaster.addDeliveriesToCart
+## Ticketmaster.addPaymentsToCart
 This operation allows users to add one or more payments to a cart.
 
 | Field             | Type       | Description
