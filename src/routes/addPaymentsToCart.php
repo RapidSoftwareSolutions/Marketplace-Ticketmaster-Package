@@ -4,7 +4,7 @@ $app->post('/api/Ticketmaster/addPaymentsToCart', function ($request, $response,
 
     //checking properly formed json
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['apiKey', 'cartId', 'payments']);
+    $validateRes = $checkRequest->validate($request, ['apiKey', 'cartId', 'payments', 'pollingCallbackUrl']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {

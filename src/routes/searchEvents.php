@@ -12,7 +12,7 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     }
 
     //forming request to vendor API
-    $query_str = $settings['api_url'].'discovery/v2/events.json';
+    $query_str = $settings['api_url'] . 'discovery/v2/events.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
     $body['sort'] = $post_data['args']['sort'];
@@ -41,7 +41,9 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     $body['source'] = $post_data['args']['source'];
     $body['includeTest'] = $post_data['args']['includeTest'];
     $body['page'] = $post_data['args']['pageNumber'];
-    $body['size'] = $post_data['args']['pageSize'];
+    if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
+        $body['size'] = $post_data['args']['pageSize'];
+    }
     $body['locale'] = $post_data['args']['locale'];
 
     //requesting remote API
@@ -50,7 +52,7 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     try {
 
         $resp = $client->request('GET', $query_str, [
-            'query'=>$body
+            'query' => $body
         ]);
 
         $responseBody = $resp->getBody()->getContents();
