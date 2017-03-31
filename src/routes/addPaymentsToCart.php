@@ -12,7 +12,7 @@ $app->post('/api/Ticketmaster/addPaymentsToCart', function ($request, $response,
     }
 
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'commerce/v2/checkout/carts/' . $post_data['args']['cartId'] . '/payments.json?apikey=' . $post_data['args']['apiKey'];
+    $query_str = $settings['api_url'] . 'commerce/v2/shopping/carts/' . $post_data['args']['cartId'] . '/payments.json?apikey=' . $post_data['args']['apiKey'];
     $body = array();
     $body['pollingCallbackUrl'] = $post_data['args']['pollingCallbackUrl'];
     $body['payments'] = $post_data['args']['payments'];
