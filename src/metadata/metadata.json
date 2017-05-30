@@ -1280,25 +1280,15 @@
             },
             {
               "name": "items",
-              "type": "List",
-              "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
-              "required": false,
-              "structure": {
-                "name": "item",
-                "type": "String",
-                "info": "Single item"
-              }
+              "type": "String",
+              "info": "A list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
+              "required": false
             },
             {
               "name": "offers",
-              "type": "List",
+              "type": "String",
               "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
-              "required": true,
-              "structure": {
-                "name": "offer",
-                "type": "String",
-                "info": "Single offer"
-              }
+              "required": true
             },
             {
               "name": "filters",
@@ -1384,25 +1374,15 @@
             },
             {
               "name": "items",
-              "type": "List",
+              "type": "String",
               "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
-              "required": false,
-              "structure": {
-                "name": "item",
-                "type": "String",
-                "info": "Single item"
-              }
+              "required": false
             },
             {
               "name": "offers",
-              "type": "List",
+              "type": "String",
               "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
-              "required": true,
-              "structure": {
-                "name": "offer",
-                "type": "String",
-                "info": "Single offer"
-              }
+              "required": true
             },
             {
               "name": "filters",
