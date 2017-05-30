@@ -132,7 +132,7 @@ Find events and filter your search by location, date, availability, and much mor
 | includeTest        | Select     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber         | Number     | Page number
 | pageSize           | Number     | Page size
-| locale             | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale             | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleEvent
 Get details for a specific event using the unique identifier for the event. This includes the venue and location, the attraction(s), and the Ticketmaster Website URL for purchasing tickets for the event.
@@ -141,7 +141,7 @@ Get details for a specific event using the unique identifier for the event. This
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | eventId| String     | ID of the event
-| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleEventImages
 Get images for a specific event using the unique identifier for the event.
@@ -150,7 +150,7 @@ Get images for a specific event using the unique identifier for the event.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | eventId| String     | ID of the event
-| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchAttractions
 Find attractions (artists, sports, packages, plays and so on) and filter your search by name, and much more.
@@ -165,7 +165,7 @@ Find attractions (artists, sports, packages, plays and so on) and filter your se
 | includeTest | String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber  | Number     | Page number
 | pageSize    | Number     | Page size
-| locale      | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale      | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleAttraction
 Get details for a specific attraction using the unique identifier for the attraction.
@@ -174,7 +174,7 @@ Get details for a specific attraction using the unique identifier for the attrac
 |-------------|------------|----------
 | apiKey      | credentials| Client key from Ticketmaster
 | attractionId| String     | ID of the attraction
-| locale      | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale      | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchClassification
 Find classifications and filter your search by name, and much more. Classifications help define the nature of attractions and events.
@@ -189,7 +189,7 @@ Find classifications and filter your search by name, and much more. Classificati
 | includeTest     | String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber      | Number     | Page number
 | pageSize        | Number     | Page size
-| locale          | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale          | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleClassification
 Get details for a specific segment, genre, or sub-genre using its unique identifier.
@@ -198,7 +198,7 @@ Get details for a specific segment, genre, or sub-genre using its unique identif
 |-----------------|------------|----------
 | apiKey          | credentials| Client key from Ticketmaster
 | classificationId| String     | ID of the classification
-| locale          | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale          | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleGenre
 Get details for a specific genre using its unique identifier.
@@ -207,7 +207,7 @@ Get details for a specific genre using its unique identifier.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | genreId| String     | ID of the classification
-| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleSegment
 Get details for a specific segment using its unique identifier.
@@ -216,7 +216,7 @@ Get details for a specific segment using its unique identifier.
 |----------|------------|----------
 | apiKey   | credentials| Client key from Ticketmaster
 | segmentId| String     | ID of the segment
-| locale   | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale   | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchVenues
 Find venues and filter your search by name, and much more.
@@ -231,7 +231,7 @@ Find venues and filter your search by name, and much more.
 | includeTest| String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber | Number     | Page number
 | pageSize   | Number     | Page size
-| locale     | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale     | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 | countryCode| String     | Filter events by country code
 | stateCode  | String     | Filter events by state code
 
@@ -242,7 +242,7 @@ Get details for a specific venue using the unique identifier for the venue.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | venueId| String     | ID of the venue
-| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getEventOffers
 Returns Event Offers.

@@ -668,7 +668,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -707,7 +707,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -746,7 +746,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -827,7 +827,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -866,7 +866,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -947,7 +947,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -986,7 +986,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -1025,7 +1025,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -1064,7 +1064,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -1145,7 +1145,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -1196,7 +1196,7 @@
         {
           "name": "locale",
           "type": "List",
-          "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
+          "info": "The locale in ISO code format. Array of values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
           "required": false,
           "structure": {
             "name": "locale",
@@ -1280,15 +1280,25 @@
             },
             {
               "name": "items",
-              "type": "Array",
+              "type": "List",
               "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
-              "required": false
+              "required": false,
+              "structure": {
+                "name": "item",
+                "type": "String",
+                "info": "Single item"
+              }
             },
             {
               "name": "offers",
-              "type": "Array",
+              "type": "List",
               "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
-              "required": true
+              "required": true,
+              "structure": {
+                "name": "offer",
+                "type": "String",
+                "info": "Single offer"
+              }
             },
             {
               "name": "filters",
@@ -1374,15 +1384,25 @@
             },
             {
               "name": "items",
-              "type": "Array",
+              "type": "List",
               "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
-              "required": false
+              "required": false,
+              "structure": {
+                "name": "item",
+                "type": "String",
+                "info": "Single item"
+              }
             },
             {
               "name": "offers",
-              "type": "Array",
+              "type": "List",
               "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
-              "required": true
+              "required": true,
+              "structure": {
+                "name": "offer",
+                "type": "String",
+                "info": "Single offer"
+              }
             },
             {
               "name": "filters",
