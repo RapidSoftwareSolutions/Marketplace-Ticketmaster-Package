@@ -136,13 +136,53 @@
           "name": "attractions",
           "type": "Array",
           "info": "List of attractions in the event.",
-          "required": false
+          "required": false,
+          "structure": [
+            {
+              "name": "id",
+              "type": "String",
+              "info": "The id of the attraction as returned by the Discovery API. If specified, then the source element should not be set.",
+              "required": false
+            },
+            {
+              "name": "source",
+              "type": "JSON",
+              "info": "source name of the attraction",
+              "required": false
+            }
+          ]
         },
         {
           "name": "classifications",
           "type": "Array",
           "info": "List of classifications for the event.",
-          "required": false
+          "required": false,
+          "structure": [
+            {
+              "name": "primary",
+              "type": "Boolean",
+              "info": "true if this is the event’s primary classification",
+              "required": false
+            },
+            {
+              "name": "segment",
+              "type": "JSON",
+              "info": "segment",
+              "required": false
+            },
+            {
+              "name": "genre",
+              "type": "JSON",
+              "info": "genre",
+              "required": false
+            },
+            {
+              "name": "subGenre",
+              "type": "JSON",
+              "info": "subGenre",
+              "required": false
+            }
+          ]
         },
         {
           "name": "startDate",
@@ -184,7 +224,33 @@
           "name": "images",
           "type": "Array",
           "info": "List of images of the event.",
-          "required": false
+          "required": false,
+          "structure": [
+            {
+              "name": "height",
+              "type": "Number",
+              "info": "the height of the image.",
+              "required": true
+            },
+            {
+              "name": "ratio",
+              "type": "String",
+              "info": "the ratio of the image ex.: 3x2, 16x9, …",
+              "required": true
+            },
+            {
+              "name": "url",
+              "type": "String",
+              "info": "the URL of the image.",
+              "required": true
+            },
+            {
+              "name": "width",
+              "type": "Number",
+              "info": "the width of the image.",
+              "required": true
+            }
+          ]
         },
         {
           "name": "names",
@@ -414,7 +480,7 @@
         },
         {
           "name": "latLong",
-          "type": "String",
+          "type": "Map",
           "info": "Filter events by latitude and longitude",
           "required": false
         },
@@ -426,31 +492,35 @@
         },
         {
           "name": "unit",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "miles",
+            "km"
+          ],
           "info": "Unit of the radius. Possible values:miles, km",
           "required": false
         },
         {
           "name": "startDateTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Filter events with a start date after this date",
           "required": false
         },
         {
           "name": "endDateTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Filter events with a start date before this date",
           "required": false
         },
         {
           "name": "onsaleStartDateTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Filter events with onsale start date after this date",
           "required": false
         },
         {
           "name": "onsaleEndDateTime",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Filter events with onsale end date before this date",
           "required": false
         },
@@ -522,13 +592,23 @@
         },
         {
           "name": "includeTBA",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "yes",
+            "no",
+            "only"
+          ],
           "info": "True, to include events with date to be announce (TBA). String enum:[yes, no, only]",
           "required": false
         },
         {
           "name": "includeTBD",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "yes",
+            "no",
+            "only"
+          ],
           "info": "True, to include event with a date to be defined (TBD). String enum:[yes, no, only]",
           "required": false
         },
@@ -552,13 +632,24 @@
         },
         {
           "name": "source",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ticketmaster",
+            "universe",
+            "frontgate",
+            "tmr"
+          ],
           "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
           "required": false
         },
         {
           "name": "includeTest",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "yes",
+            "no",
+            "only"
+          ],
           "info": "True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]",
           "required": false
         },
@@ -576,9 +667,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -610,9 +706,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -644,9 +745,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -690,7 +796,13 @@
         },
         {
           "name": "source",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ticketmaster",
+            "universe",
+            "frontgate",
+            "tmr"
+          ],
           "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
           "required": false
         },
@@ -714,9 +826,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -748,9 +865,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -794,7 +916,13 @@
         },
         {
           "name": "source",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ticketmaster",
+            "universe",
+            "frontgate",
+            "tmr"
+          ],
           "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
           "required": false
         },
@@ -818,9 +946,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -852,9 +985,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -886,9 +1024,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -920,9 +1063,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -966,7 +1114,13 @@
         },
         {
           "name": "source",
-          "type": "String",
+          "type": "Select",
+          "options": [
+            "ticketmaster",
+            "universe",
+            "frontgate",
+            "tmr"
+          ],
           "info": "Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]",
           "required": false
         },
@@ -990,9 +1144,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         },
         {
           "name": "countryCode",
@@ -1036,9 +1195,14 @@
         },
         {
           "name": "locale",
-          "type": "String",
+          "type": "List",
           "info": "The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "locale",
+            "type": "String",
+            "info": "Single locale"
+          }
         }
       ],
       "callbacks": [
@@ -1100,7 +1264,39 @@
           "name": "products",
           "type": "Array",
           "info": "Container of add product requests.",
-          "required": true
+          "required": true,
+          "structure": [
+            {
+              "name": "product",
+              "type": "String",
+              "info": "the product id.",
+              "required": true
+            },
+            {
+              "name": "qty",
+              "type": "String",
+              "info": "the number of items requested.",
+              "required": false
+            },
+            {
+              "name": "items",
+              "type": "Array",
+              "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
+              "required": false
+            },
+            {
+              "name": "offers",
+              "type": "Array",
+              "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
+              "required": true
+            },
+            {
+              "name": "filters",
+              "type": "JSON",
+              "info": "Optional filters to apply when searching for inventory.",
+              "required": false
+            }
+          ]
         }
       ],
       "callbacks": [
@@ -1162,7 +1358,39 @@
           "name": "products",
           "type": "Array",
           "info": "Container of add product requests.",
-          "required": true
+          "required": true,
+          "structure": [
+            {
+              "name": "product",
+              "type": "String",
+              "info": "the product id.",
+              "required": true
+            },
+            {
+              "name": "qty",
+              "type": "String",
+              "info": "the number of items requested.",
+              "required": false
+            },
+            {
+              "name": "items",
+              "type": "Array",
+              "info": "a list of inventory item ids. Used to reserve specific inventory items (i.e. specific seats).",
+              "required": false
+            },
+            {
+              "name": "offers",
+              "type": "Array",
+              "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
+              "required": true
+            },
+            {
+              "name": "filters",
+              "type": "JSON",
+              "info": "Optional filters to apply when searching for inventory.",
+              "required": false
+            }
+          ]
         },
         {
           "name": "cartId",
@@ -1230,7 +1458,27 @@
           "name": "deliveries",
           "type": "Array",
           "info": "Container of add delivery requests.",
-          "required": true
+          "required": true,
+          "structure": [
+            {
+              "name": "deliveryId",
+              "type": "String",
+              "info": "the delivery id.",
+              "required": true
+            },
+            {
+              "name": "op",
+              "type": "String",
+              "info": "Operation to be performed (add, remove).",
+              "required": true
+            },
+            {
+              "name": "selectedItems",
+              "type": "JSON",
+              "info": "object representing selected delivery items to be added to the cart.",
+              "required": false
+            }
+          ]
         },
         {
           "name": "cartId",
@@ -1270,7 +1518,45 @@
           "name": "payments",
           "type": "Array",
           "info": "Container of add payments requests.",
-          "required": true
+          "required": true,
+          "structure": [
+            {
+              "name": "type",
+              "type": "String",
+              "info": "the payment type. valid values - cash, wallet.",
+              "required": true
+            },
+            {
+              "name": "amount",
+              "type": "JSON",
+              "info": "the payment amount object.",
+              "required": true
+            },
+            {
+              "name": "op",
+              "type": "String",
+              "info": "operation to be performed (add, remove).",
+              "required": true
+            },
+            {
+              "name": "token",
+              "type": "String",
+              "info": "Required when wallet payment - the wallet token.",
+              "required": false
+            },
+            {
+              "name": "cvv",
+              "type": "String",
+              "info": "Required when wallet payment - the cvv associated with wallet.",
+              "required": false
+            },
+            {
+              "name": "selectedItems",
+              "type": "JSON",
+              "info": "object representing selected delivery items to be added to the cart.",
+              "required": false
+            }
+          ]
         },
         {
           "name": "cartId",

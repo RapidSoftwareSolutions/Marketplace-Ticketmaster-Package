@@ -10,6 +10,17 @@ Ticketmaster
 1. Register or log in
 2. Create your application at [Developers page](https://developer-acct.ticketmaster.com) to get apiKey and clientSecret
 
+
+## Custom datatypes: 
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]``` 
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
+
 ## Ticketmaster.getAccessToken
 Get user access token
 
@@ -94,13 +105,13 @@ Find events and filter your search by location, date, availability, and much mor
 |--------------------|------------|----------
 | apiKey             | credentials| Client key from Ticketmaster
 | sort               | String     | Sorting order of the search result. Example value: relevance,desc
-| latLong            | String     | Filter events by latitude and longitude
+| latLong            | Map        | Filter events by latitude and longitude
 | radius             | String     | Radius of the area in which we want to search for events.
-| unit               | String     | Unit of the radius. Possible values:miles, km
-| startDateTime      | String     | Filter events with a start date after this date
-| endDateTime        | String     | Filter events with a start date before this date
-| onsaleStartDateTime| String     | Filter events with onsale start date after this date
-| onsaleEndDateTime  | String     | Filter events with onsale end date before this date
+| unit               | Select     | Unit of the radius. Possible values:miles, km
+| startDateTime      | DatePicker | Filter events with a start date after this date
+| endDateTime        | DatePicker | Filter events with a start date before this date
+| onsaleStartDateTime| DatePicker | Filter events with onsale start date after this date
+| onsaleEndDateTime  | DatePicker | Filter events with onsale end date before this date
 | countryCode        | String     | Filter events by country code
 | stateCode          | String     | Filter events by state code
 | venueId            | String     | Filter events by venue id
@@ -112,16 +123,16 @@ Find events and filter your search by location, date, availability, and much mor
 | marketId           | String     | Filter events by market id
 | promoterId         | String     | Filter events by promoter id
 | dmaId              | String     | Filter events by dma id
-| includeTBA         | String     | True, to include events with date to be announce (TBA). String enum:[yes, no, only]
-| includeTBD         | String     | True, to include event with a date to be defined (TBD). String enum:[yes, no, only]
+| includeTBA         | Select     | True, to include events with date to be announce (TBA). String enum:[yes, no, only]
+| includeTBD         | Select     | True, to include event with a date to be defined (TBD). String enum:[yes, no, only]
 | clientVisibility   | String     | Filter events by clientName
 | keyword            | String     | Keyword to search on
 | eventId            | String     | Filter entities by its id
-| source             | String     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
-| includeTest        | String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
+| source             | Select     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
+| includeTest        | Select     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber         | Number     | Page number
 | pageSize           | Number     | Page size
-| locale             | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale             | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleEvent
 Get details for a specific event using the unique identifier for the event. This includes the venue and location, the attraction(s), and the Ticketmaster Website URL for purchasing tickets for the event.
@@ -130,7 +141,7 @@ Get details for a specific event using the unique identifier for the event. This
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | eventId| String     | ID of the event
-| locale | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleEventImages
 Get images for a specific event using the unique identifier for the event.
@@ -139,7 +150,7 @@ Get images for a specific event using the unique identifier for the event.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | eventId| String     | ID of the event
-| locale | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchAttractions
 Find attractions (artists, sports, packages, plays and so on) and filter your search by name, and much more.
@@ -150,11 +161,11 @@ Find attractions (artists, sports, packages, plays and so on) and filter your se
 | sort        | String     | Sorting order of the search result. Example value: relevance,desc
 | keyword     | String     | Keyword to search on
 | attractionId| String     | Filter attractions by its id
-| source      | String     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
+| source      | Select     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
 | includeTest | String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber  | Number     | Page number
 | pageSize    | Number     | Page size
-| locale      | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale      | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleAttraction
 Get details for a specific attraction using the unique identifier for the attraction.
@@ -163,7 +174,7 @@ Get details for a specific attraction using the unique identifier for the attrac
 |-------------|------------|----------
 | apiKey      | credentials| Client key from Ticketmaster
 | attractionId| String     | ID of the attraction
-| locale      | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale      | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchClassification
 Find classifications and filter your search by name, and much more. Classifications help define the nature of attractions and events.
@@ -174,11 +185,11 @@ Find classifications and filter your search by name, and much more. Classificati
 | sort            | String     | Sorting order of the search result. Example value: relevance,desc
 | keyword         | String     | Keyword to search on
 | classificationId| String     | Filter classifications by its id
-| source          | String     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
+| source          | Select     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
 | includeTest     | String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber      | Number     | Page number
 | pageSize        | Number     | Page size
-| locale          | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale          | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleClassification
 Get details for a specific segment, genre, or sub-genre using its unique identifier.
@@ -187,7 +198,7 @@ Get details for a specific segment, genre, or sub-genre using its unique identif
 |-----------------|------------|----------
 | apiKey          | credentials| Client key from Ticketmaster
 | classificationId| String     | ID of the classification
-| locale          | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale          | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleGenre
 Get details for a specific genre using its unique identifier.
@@ -196,7 +207,7 @@ Get details for a specific genre using its unique identifier.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | genreId| String     | ID of the classification
-| locale | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getSingleSegment
 Get details for a specific segment using its unique identifier.
@@ -205,7 +216,7 @@ Get details for a specific segment using its unique identifier.
 |----------|------------|----------
 | apiKey   | credentials| Client key from Ticketmaster
 | segmentId| String     | ID of the segment
-| locale   | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale   | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.searchVenues
 Find venues and filter your search by name, and much more.
@@ -216,11 +227,11 @@ Find venues and filter your search by name, and much more.
 | sort       | String     | Sorting order of the search result. Example value: relevance,desc
 | keyword    | String     | Keyword to search on
 | venueId    | String     | Filter venues by its id
-| source     | String     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
+| source     | Select     | Filter entities by its source name. String enum:[ticketmaster, universe, frontgate, tmr]
 | includeTest| String     | True if you want to have entities flag as test in the response. Only, if you only wanted test entities. String enum:[yes, no, only]
 | pageNumber | Number     | Page number
 | pageSize   | Number     | Page size
-| locale     | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale     | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 | countryCode| String     | Filter events by country code
 | stateCode  | String     | Filter events by state code
 
@@ -231,7 +242,7 @@ Get details for a specific venue using the unique identifier for the venue.
 |--------|------------|----------
 | apiKey | credentials| Client key from Ticketmaster
 | venueId| String     | ID of the venue
-| locale | String     | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
+| locale | List       | The locale in ISO code format. Multiple comma-separated values can be provided. When omitting the country part of the code (e.g. only 'en' or 'fr') then the first matching locale is used.
 
 ## Ticketmaster.getEventOffers
 Returns Event Offers.

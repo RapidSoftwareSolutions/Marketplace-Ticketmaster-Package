@@ -15,7 +15,7 @@ $app->post('/api/Ticketmaster/getSingleSegment', function ($request, $response, 
     $query_str = $settings['api_url'].'discovery/v2/classifications/segments/'.$post_data['args']['segmentId'].'.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['locale'] = $post_data['args']['locale'];
+    $body['locale'] = is_array($post_data['args']['locale']) ? implode(',', $post_data['args']['locale']) : $post_data['args']['locale'];
 
     //requesting remote API
     $client = new GuzzleHttp\Client();

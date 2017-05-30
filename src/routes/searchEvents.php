@@ -96,8 +96,8 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
         $body['size'] = $post_data['args']['pageSize'];
     }
-    if (isset($post_data['args']['locale']) && strlen($post_data['args']['locale']) > 0) {
-        $body['locale'] = $post_data['args']['locale'];
+    if (!empty($post_data['args']['locale'])) {
+        $body['locale'] = is_array($post_data['args']['locale']) ? implode(',', $post_data['args']['locale']) : $post_data['args']['locale'];
     }
 
     //requesting remote API

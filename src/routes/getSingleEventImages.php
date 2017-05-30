@@ -15,7 +15,7 @@ $app->post('/api/Ticketmaster/getSingleEventImages', function ($request, $respon
     $query_str = $settings['api_url'].'discovery/v2/events/'.$post_data['args']['eventId'].'/images.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['locale'] = $post_data['args']['locale'];
+    $body['locale'] = is_array($post_data['args']['locale']) ? implode(',', $post_data['args']['locale']) : $post_data['args']['locale'];
 
     //requesting remote API
     $client = new GuzzleHttp\Client();

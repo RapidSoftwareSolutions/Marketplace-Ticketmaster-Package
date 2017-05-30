@@ -15,7 +15,7 @@ $app->post('/api/Ticketmaster/getSingleAttraction', function ($request, $respons
     $query_str = $settings['api_url'].'discovery/v2/attractions/'.$post_data['args']['attractionId'].'.json';
     $body = array();
     $body['apikey'] = $post_data['args']['apiKey'];
-    $body['locale'] = $post_data['args']['locale'];
+    $body['locale'] = is_array($post_data['args']['locale']) ? implode(',', $post_data['args']['locale']) : $post_data['args']['locale'];
 
     //requesting remote API
     $client = new GuzzleHttp\Client();

@@ -32,7 +32,7 @@ $app->post('/api/Ticketmaster/searchVenues', function ($request, $response, $arg
     if (isset($post_data['args']['pageSize']) && strlen($post_data['args']['pageSize']) > 0) {
         $body['size'] = $post_data['args']['pageSize'];
     }
-    $body['locale'] = $post_data['args']['locale'];
+    $body['locale'] = is_array($post_data['args']['locale']) ? implode(',', $post_data['args']['locale']) : $post_data['args']['locale'];
 
     //requesting remote API
     $client = new GuzzleHttp\Client();
