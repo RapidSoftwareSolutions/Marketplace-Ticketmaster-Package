@@ -1377,7 +1377,7 @@
               "name": "offers",
               "type": "String",
               "info": "list of offer ids. Reserved inventory will come from one of these offer ids.",
-              "required": true
+              "required": false
             },
             {
               "name": "filters",
