@@ -72,8 +72,7 @@ Publish events accessible within the Discovery API.
 | placeCityNames       | JSON       | map of locale to value for the names of the city.
 | placeCountryCode     | String     | the code of the country of the event.
 | placeCountryNames    | JSON       | map of locale to value for the names of the country.
-| placeLatitude        | String     | the latitude of the event location.
-| placeLongitude       | String     | the longitude of the event location.
+| placeCoordinate        | Map     | the latitude and longitude of the event location coma separated.
 | placePostalcode      | String     | the postal code of the place of the event.
 | placeStateNames      | JSON       | map of locale to value for the names of the state.
 | placeStateCode       | JSON       | the code of the state of the event.

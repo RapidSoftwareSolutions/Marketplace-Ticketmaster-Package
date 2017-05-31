@@ -36,8 +36,13 @@ $app->post('/api/Ticketmaster/createEvents', function ($request, $response, $arg
     $body['place']['city']['names'] = $post_data['args']['placeCityNames'];
     $body['place']['country']['countryCode'] = $post_data['args']['placeCountryCode'];
     $body['place']['country']['names'] = $post_data['args']['placeCountryNames'];
-    $body['place']['location']['latitude'] = $post_data['args']['placeLatitude'];
-    $body['place']['location']['longitude'] = $post_data['args']['placeLongitude'];
+    if (isset($post_data['args']['placeCoordinate'])){
+        $body['place']['location']['latitude'] = explode(',',$post_data['args']['placeCoordinate'])[0];
+        $body['place']['location']['longitude'] = explode(',',$post_data['args']['placeCoordinate'])[1];
+    } else {
+        $body['place']['location']['latitude'] = $post_data['args']['placeLatitude'];
+        $body['place']['location']['longitude'] = $post_data['args']['placeLongitude'];
+    }
     $body['place']['postlcode'] = $post_data['args']['placePostalcode'];
     $body['place']['state']['names'] = $post_data['args']['placeStateNames'];
     $body['place']['state']['stateCode'] = $post_data['args']['placeStateCode'];

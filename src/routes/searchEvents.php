@@ -19,7 +19,7 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
         $body['sort'] = $post_data['args']['sort'];
     }
     if (isset($post_data['args']['latLong']) && strlen($post_data['args']['latLong']) > 0) {
-        $body['latlong'] = $post_data['args']['latLong'];
+        $body['latlong'] = str_replace(' ','',$post_data['args']['latLong']);
     }
     if (isset($post_data['args']['radius']) && strlen($post_data['args']['radius']) > 0) {
         $body['radius'] = $post_data['args']['radius'];
@@ -31,10 +31,12 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
         $body['endDateTime'] = $post_data['args']['endDateTime'];
     }
     if (isset($post_data['args']['onsaleStartDateTime']) && strlen($post_data['args']['onsaleStartDateTime']) > 0) {
-        $body['onsaleStartDateTime'] = $post_data['args']['onsaleStartDateTime'];
+        $dateTime = new DateTime($post_data['args']['onsaleStartDateTime']);
+        $body['onsaleStartDateTime'] = $dateTime->format(\DateTime::ISO8601);
     }
     if (isset($post_data['args']['onsaleEndDateTime']) && strlen($post_data['args']['onsaleEndDateTime']) > 0) {
-        $body['onsaleEndDateTime'] = $post_data['args']['onsaleEndDateTime'];
+        $dateTime = new DateTime($post_data['args']['onsaleEndDateTime']);
+        $body['onsaleEndDateTime'] = $dateTime->format(\DateTime::ISO8601);
     }
     if (isset($post_data['args']['countryCode']) && strlen($post_data['args']['countryCode']) > 0) {
         $body['countryCode'] = $post_data['args']['countryCode'];

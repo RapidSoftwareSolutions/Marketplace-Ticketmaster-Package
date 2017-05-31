@@ -301,17 +301,12 @@
           "required": false
         },
         {
-          "name": "placeLatitude",
-          "type": "String",
-          "info": "the latitude of the event location.",
+          "name": "placeCoordinate",
+          "type": "Map",
+          "info": "the latitude and longitude of the event location coma separated.",
           "required": false
         },
-        {
-          "name": "placeLongitude",
-          "type": "String",
-          "info": "the longitude of the event location.",
-          "required": false
-        },
+
         {
           "name": "placePostalcode",
           "type": "String",
