@@ -24,6 +24,9 @@ $app->post('/api/Ticketmaster/searchEvents', function ($request, $response, $arg
     if (isset($post_data['args']['radius']) && strlen($post_data['args']['radius']) > 0) {
         $body['radius'] = $post_data['args']['radius'];
     }
+    if (isset($post_data['args']['unit']) && strlen($post_data['args']['unit']) > 0) {
+        $body['unit'] = $post_data['args']['unit'];
+    }
     if (isset($post_data['args']['startDateTime']) && strlen($post_data['args']['startDateTime']) > 0) {
         $dateTime = new DateTime($post_data['args']['startDateTime']);
 
